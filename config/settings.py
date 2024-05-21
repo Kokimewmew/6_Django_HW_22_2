@@ -51,18 +51,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'localhost',
-        'NAME': 'Tashbulatov_A_I',
+        'NAME': 'H_W_20_1',
         'USER': 'postgres',
         'PASSWORD': '1234567890',
-
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
-# 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#       'HOST': 'localhost',
-#      'NAME': 'Tashbulatov_A_I',
-#      'USER': 'postgres',
-#     'PASSWORD': '1234567890',
 
 AUTH_PASSWORD_VALIDATORS = [
     {
