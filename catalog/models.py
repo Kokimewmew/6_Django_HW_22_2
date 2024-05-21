@@ -48,12 +48,6 @@ class Product(models.Model):
         verbose_name="Дата последнего изменения(записи в БД)",
         help_text="Введите Дату последнего изменения продукта",
     )
-    manufactured_at = models.DateField(
-        verbose_name="Дата производства продукта",
-        help_text="Введите Дату  производства продукта",
-        null=True,
-        blank=True
-    )
 
     def __str__(self):
         return self.title
