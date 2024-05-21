@@ -51,6 +51,8 @@ class Product(models.Model):
     manufactured_at = models.DateField(
         verbose_name="Дата производства продукта",
         help_text="Введите Дату  производства продукта",
+        null=True,
+        blank=True
     )
 
     def __str__(self):
