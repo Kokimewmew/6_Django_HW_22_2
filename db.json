@@ -27,6 +27,58 @@
   },
   {
     "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2024-05-22T00:14:36.080Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "╨Ю╨▓╨╛╤Й╨╕",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2024-05-22T00:14:53.775Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "1",
+      "object_repr": "╨Ю╨│╤Г╤А╨╡╤Ж",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2024-05-22T00:15:56.679Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "Cucumber",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2024-05-22T00:16:07.123Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "Cucumber",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
     "pk": 7,
     "fields": {
       "action_time": "2024-05-22T00:16:23.277Z",
@@ -49,6 +101,58 @@
       "object_repr": "Огурец",
       "action_flag": 1,
       "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2024-05-22T00:40:33.020Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "7",
+      "object_repr": "Яблоко",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2024-05-22T20:21:14.035Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "8",
+      "object_repr": "Аленка",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2024-05-22T20:21:28.292Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "9",
+      "object_repr": "Говядина вес.",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2024-05-22T20:21:36.325Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "2",
+      "object_repr": "Огурец",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
     }
   },
   {
@@ -436,10 +540,49 @@
       "title": "Огурец",
       "desk": "зеленая фигня",
       "image": "product/photo/Огурец_dIsGKGa.bmp",
-      "category": null,
+      "category": 3,
       "price": 100,
       "created_at": "2024-05-22",
       "updated_at": "2024-05-22"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+      "title": "Яблоко",
+      "desk": "Вкусный завтрак",
+      "image": "",
+      "category": 4,
+      "price": 50,
+      "created_at": "2024-05-22",
+      "updated_at": "2024-05-22"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "title": "Аленка",
+      "desk": "Привет кариес",
+      "image": "",
+      "category": 5,
+      "price": 40,
+      "created_at": "2024-05-23",
+      "updated_at": "2024-05-23"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+      "title": "Говядина вес.",
+      "desk": "Говядина говядина",
+      "image": "",
+      "category": 6,
+      "price": 300,
+      "created_at": "2024-05-23",
+      "updated_at": "2024-05-23"
     }
   },
   {
@@ -448,6 +591,30 @@
     "fields": {
       "title": "Овощи",
       "desk": "полезные фигнюшки"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "title": "Фрукты",
+      "desk": "Вкусно и полезно"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+      "title": "Шоколадки",
+      "desk": ""
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 6,
+    "fields": {
+      "title": "Мясо",
+      "desk": ""
     }
   }
 ]
