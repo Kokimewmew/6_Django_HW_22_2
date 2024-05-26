@@ -31,9 +31,8 @@ class Command(BaseCommand):
         for category in Command.json_read():
             if category['model'] == 'catalog.category':
                 category_for_create.append(
-                    Category(title=category['fields']['title'], desk=category['fields']['desk'])
+                    Category(pk=category['pk'], title=category['fields']['title'], desk=category['fields']['desk'])
                 )
-
         # Создаем объекты в базе с помощью метода bulk_create()
         Category.objects.bulk_create(category_for_create)
 
