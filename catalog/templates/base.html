@@ -182,7 +182,7 @@
 
 
 <header data-bs-theme="dark">
-{% include 'includes/inc_menu.html' %}
+    {% include 'includes/inc_menu.html' %}
 </header>
 
 <main>
@@ -201,15 +201,17 @@
     </section>
 
 
-
-{% block content %}
-{% endblock  %}
+    {% block content %}
+    {% endblock %}
 </main>
 
 <footer class="text-body-secondary py-5">
     <div class="container">
         <p class="float-end mb-1">
-            <a href="#">Back to top</a>
+            <a class="p-2 btn btn-outline-primary" href="/contacts/">Контакты</a>
+            <a class="p-2 btn btn-outline-primary" href="#">Back to top</a>
+
+
         </p>
         <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
         <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a
