@@ -9,18 +9,16 @@ def home(request):
 
 
 class ContactsView(TemplateView):
-    template_name = "catalog/contacts.html"
-    extra_context = {
-        'title': 'contacts'
-    }
+    template_name = 'catalog/contacts.html'
 
-    def get_context_data(self, **kwargs):
-        if self.request.method == 'POST':
-            name = self.request.POST.get('name')
-            phone = self.request.POST.get('phone')
-            message = self.request.POST.get('message')
-            print(f'You have new message from {name}({phone}): {message}')
-        return super().get_context_data(**kwargs)
+    def post(self, request):
+        if request.method == 'POST':
+            name = request.POST.get('name')
+            phone = request.POST.get('phone')
+            message = request.POST.get('message')
+
+            print(f'You have new message from {name} ({phone}): {message}')
+        return render(request, template_name='catalog/contacts.html')
 
 
 # def contacts(request):
