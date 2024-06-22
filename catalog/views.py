@@ -24,9 +24,28 @@ class ContactsView(TemplateView):
 class ProductListview(ListView):
     model = Product
 
+    def get_context_data(self, *args, **kwargs):
+        context_data = super().get_context_data(*args, **kwargs)
+        # products = Product.objects.all()
+        products = self.get_queryset(*args, **kwargs)
+
+        for product in products:
+            versions = Version.objects.filter(product=product)
+            active_versions = versions.filter(current_version=True)
+            if active_versions:
+                product.active_version = active_versions.last().version_title
+            else:
+                product.active_version = 'Нет активной версии'
+
+        context_data['object_list'] = products
+        return context_data
+
+
+
 
 class ProductDetailview(DetailView):
     model = Product
+
 
 
 class ProductCreateView(CreateView):

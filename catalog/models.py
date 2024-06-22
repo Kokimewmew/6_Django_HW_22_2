@@ -104,7 +104,7 @@ class Blog(models.Model):
 class Version(models.Model):
     product = models.ForeignKey(
         Product, related_name="Версия", verbose_name="Продукт",
-        on_delete=models.SET_NULL, **NULLABLE)
+        on_delete=models.CASCADE, **NULLABLE)
 
     version_num = models.IntegerField(
         verbose_name= "Номер версии", **NULLABLE)
@@ -117,7 +117,7 @@ class Version(models.Model):
 
 
     def __str__(self):
-        return self.product
+        return f"{self.product} {self.version_num} {self.version_title}"
 
     class Meta:
         verbose_name = "Версия"
