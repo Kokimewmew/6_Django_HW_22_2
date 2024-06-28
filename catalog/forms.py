@@ -3,7 +3,6 @@ from django.forms import ModelForm, forms, BooleanField
 from catalog.models import Product, Version
 
 
-
 class StyleFormMixin:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -13,8 +12,6 @@ class StyleFormMixin:
 
             else:
                 fild.widget.attrs['class'] = "form-control"
-
-
 
 
 class ProductForm(StyleFormMixin, ModelForm):
@@ -39,11 +36,6 @@ class ProductForm(StyleFormMixin, ModelForm):
             raise forms.ValidationError('Ошибка, связанная с недопустимым вводом')
 
         return cleaned_data
-
-
-
-
-
 
 
 class VersionForm(StyleFormMixin, ModelForm):

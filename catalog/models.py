@@ -1,6 +1,8 @@
 from django.db import models
 
+from users.models import User
 
+NULLABLE = {"blank": "True", "null": "True"}
 class Product(models.Model):
     title = models.CharField(
         max_length=100,
@@ -53,6 +55,14 @@ class Product(models.Model):
         help_text="Введите Дату последнего изменения продукта",
     )
 
+    user = models.ForeignKey(
+        User, on_delete=models.SET_NULL,
+        verbose_name='Пользователь',
+        help_text='Укажите владельца продукта', **NULLABLE
+    )
+
+
+
     def __str__(self):
         return self.title
 
@@ -81,7 +91,7 @@ class Category(models.Model):
         verbose_name_plural = "категории"
 
 
-NULLABLE = {"blank": "True", "null": "True"}
+
 
 
 class Blog(models.Model):
