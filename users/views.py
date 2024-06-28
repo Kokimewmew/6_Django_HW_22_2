@@ -63,4 +63,6 @@ def reset_password(request):
             recipient_list=[user.email],
         )
         return redirect(reverse('users:login'))
-    return render(request, 'users/reset_password.html')
+    return render(request, 'reset_password.html')
+
+
