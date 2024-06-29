@@ -1,6 +1,8 @@
 import os.path
 from pathlib import Path
 
+from email_settings_host import YOUR_EMAIL_HOST_USER, YOUR_EMAIL_HOST_PASSWORD
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-__zk#^%xy8+@487o9rv%0s0llt-eea#q9t^sq56hro!585k043'
@@ -102,8 +104,8 @@ LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = "gomoseptepedis@yandex.ru"
-EMAIL_HOST_PASSWORD = "soesaycfmklkpyvg"
+EMAIL_HOST_USER = YOUR_EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = YOUR_EMAIL_HOST_PASSWORD
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
