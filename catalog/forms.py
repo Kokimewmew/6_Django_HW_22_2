@@ -17,7 +17,7 @@ class StyleFormMixin:
 class ProductForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Product
-        exclude = '__all__'
+        fields = '__all__'
 
     def clean_title(self):
         cleaned_data = self.cleaned_data.get('title')
@@ -47,16 +47,16 @@ class ProductModeratorForm(StyleFormMixin, ModelForm):
 class VersionForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Version
-        exclude = '__all__'
+        fields = '__all__'
 
 
 class BlogForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Blog
-        exclude = '__all__'
+        fields = '__all__'
 
 
 class BlogModeratorForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Blog
-        fields = ("published", "content", "title")
+        fields = ("title", "content", "published",)

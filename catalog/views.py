@@ -147,6 +147,8 @@ class BlogCreateView(CreateView):
         return super().form_valid(form)
 
 
+
+
 class BlogUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'blog/blog_form.html'
     model = Blog
