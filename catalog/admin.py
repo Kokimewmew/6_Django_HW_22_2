@@ -14,8 +14,6 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ("id", "title")
 
 
-
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
     list_display = ("id", "title")
-
