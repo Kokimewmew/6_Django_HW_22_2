@@ -3,6 +3,8 @@ from django.db import models
 from users.models import User
 
 NULLABLE = {"blank": "True", "null": "True"}
+
+
 class Product(models.Model):
     title = models.CharField(
         max_length=100,
@@ -61,7 +63,7 @@ class Product(models.Model):
         help_text='Укажите владельца продукта', **NULLABLE
     )
 
-
+    published = models.BooleanField(default=False, verbose_name='опубликован')
 
     def __str__(self):
         return self.title
@@ -70,6 +72,11 @@ class Product(models.Model):
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
         ordering = ["category", "title"]
+        permissions = [
+            ("can_canceled_public", "может отменять публикацию продукта"),
+            ("can_edit_desk", "может менять описание любого продукта"),
+            ("can_edit_category", "может менять категорию любого продукта")
+        ]
 
 
 class Category(models.Model):
@@ -91,9 +98,6 @@ class Category(models.Model):
         verbose_name_plural = "категории"
 
 
-
-
-
 class Blog(models.Model):
     title = models.CharField(max_length=50, verbose_name="заголовок")
     slug = models.CharField(max_length=150, verbose_name='URL', **NULLABLE)
@@ -102,6 +106,10 @@ class Blog(models.Model):
     created_at = models.DateField(auto_created=True, verbose_name="дата создания")
     published = models.BooleanField(default=True, verbose_name='опубликован')
     views = models.IntegerField(default=0, verbose_name='количество просмотров')
+    user = models.ForeignKey(User,
+                             on_delete=models.SET_NULL,verbose_name='Пользователь',
+                             help_text='Укажите владельца продукта', **NULLABLE
+            )
 
     def __str__(self):
         return self.title
@@ -109,6 +117,9 @@ class Blog(models.Model):
     class Meta:
         verbose_name = "блог"
         verbose_name_plural = "блоги"
+        permissions = [
+            ("can_edit", "может редактировать блог")
+        ]
 
 
 class Version(models.Model):
@@ -117,14 +128,13 @@ class Version(models.Model):
         on_delete=models.CASCADE, **NULLABLE)
 
     version_num = models.IntegerField(
-        verbose_name= "Номер версии", **NULLABLE)
+        verbose_name="Номер версии", **NULLABLE)
 
     version_title = models.CharField(
         max_length=100,
         verbose_name="Наименование продукта")
 
     current_version = models.BooleanField(default=True, verbose_name="Признак текущей версии")
-
 
     def __str__(self):
         return f"{self.product} {self.version_num} {self.version_title}"
@@ -133,4 +143,3 @@ class Version(models.Model):
         verbose_name = "Версия"
         verbose_name_plural = "Версии"
         ordering = ["version_num", "product"]
-
