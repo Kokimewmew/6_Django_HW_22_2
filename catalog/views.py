@@ -8,6 +8,7 @@ from pytils.translit import slugify
 
 from catalog.forms import ProductForm, VersionForm, ProductModeratorForm, BlogForm, BlogModeratorForm
 from catalog.models import Product, Blog, Version
+from catalog.servises import get_product_from_cache
 
 
 class ContactsView(TemplateView):
@@ -25,6 +26,9 @@ class ContactsView(TemplateView):
 
 class ProductListview(ListView):
     model = Product
+
+    def get_queryset(self):
+        return get_product_from_cache()
 
     def get_context_data(self, *args, **kwargs):
         context_data = super().get_context_data(*args, **kwargs)
