@@ -7,8 +7,8 @@ from django.views.generic import ListView, DetailView, TemplateView, CreateView,
 from pytils.translit import slugify
 
 from catalog.forms import ProductForm, VersionForm, ProductModeratorForm, BlogForm, BlogModeratorForm
-from catalog.models import Product, Blog, Version
-from catalog.servises import get_product_from_cache
+from catalog.models import Product, Blog, Version, Category
+from catalog.servises import get_product_from_cache, get_category_from_cache
 
 
 class ContactsView(TemplateView):
@@ -115,6 +115,12 @@ class ProductDeleteView(DeleteView):
     model = Product
     success_url = reverse_lazy('catalog:product_list')
 
+class CategoryListView(ListView):
+    model = Category
+
+    def get_queryset(self):
+        return get_category_from_cache()
+
 
 class BlogListview(ListView):
     template_name = 'blog/blog_list.html'
@@ -175,3 +181,4 @@ class BlogDeleteView(DeleteView):
     template_name = 'blog/blog_delete.html'
     model = Blog
     success_url = reverse_lazy('catalog:blog_list')
+
